@@ -1,0 +1,281 @@
+<?php
+// Welcome Page
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Alya 🤎</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Poppins',sans-serif;
+            min-height:100vh;
+            background:
+            linear-gradient(
+            135deg,
+            #3E2723 0%,
+            #6D4C41 50%,
+            #A1887F 100%
+            );
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            overflow:hidden;
+            position:relative;
+            padding:30px;
+        }
+
+        /* Blur Circle Background */
+
+        .blur1,
+        .blur2{
+            position:absolute;
+            border-radius:50%;
+            filter:blur(120px);
+            opacity:0.4;
+        }
+
+        .blur1{
+            width:300px;
+            height:300px;
+            background:#D7B899;
+            top:-80px;
+            left:-80px;
+        }
+
+        .blur2{
+            width:350px;
+            height:350px;
+            background:#8D6E63;
+            bottom:-100px;
+            right:-100px;
+        }
+
+        .container{
+            width:100%;
+            max-width:1100px;
+
+            background:rgba(255,255,255,0.08);
+
+            border:1px solid rgba(255,255,255,0.15);
+
+            backdrop-filter:blur(18px);
+
+            border-radius:35px;
+
+            overflow:hidden;
+
+            display:flex;
+
+            box-shadow:
+            0 10px 50px rgba(0,0,0,0.25);
+        }
+
+        .left{
+            flex:1;
+            min-height:650px;
+
+            background:url('images/gf.jpg') center/cover;
+
+            position:relative;
+        }
+
+        .left::after{
+            content:'';
+            position:absolute;
+            inset:0;
+
+            background:
+            linear-gradient(
+            to top,
+            rgba(0,0,0,0.4),
+            rgba(0,0,0,0.1)
+            );
+        }
+
+        .right{
+            flex:1;
+            padding:70px 55px;
+
+            display:flex;
+            justify-content:center;
+            flex-direction:column;
+
+            color:#FFF8F0;
+        }
+
+        .tag{
+            font-size:14px;
+            letter-spacing:3px;
+            margin-bottom:15px;
+            opacity:0.8;
+        }
+
+        h1{
+            font-family:'Great Vibes',cursive;
+            font-size:75px;
+            line-height:1.1;
+            margin-bottom:20px;
+        }
+
+        .message{
+            font-size:16px;
+            line-height:2;
+            color:#f3e9e2;
+            margin-bottom:35px;
+        }
+
+        .btn-group{
+            display:flex;
+            gap:15px;
+            flex-wrap:wrap;
+        }
+
+        .btn{
+            padding:14px 28px;
+            border-radius:50px;
+            text-decoration:none;
+            font-weight:600;
+            transition:0.35s;
+        }
+
+        .btn-love{
+            background:#FFF8F0;
+            color:#5D4037;
+        }
+
+        .btn-love:hover{
+            transform:translateY(-4px);
+            box-shadow:0 10px 25px rgba(255,255,255,0.2);
+        }
+
+        .btn-no{
+            border:1px solid rgba(255,255,255,0.3);
+            color:white;
+        }
+
+        .btn-no:hover{
+            background:rgba(255,255,255,0.1);
+        }
+
+        .floating-heart{
+            position:absolute;
+            color:rgba(255,255,255,0.15);
+            font-size:30px;
+            animation:float 8s linear infinite;
+        }
+
+        @keyframes float{
+
+            0%{
+                transform:translateY(100vh);
+                opacity:0;
+            }
+
+            20%{
+                opacity:1;
+            }
+
+            100%{
+                transform:translateY(-120vh);
+                opacity:0;
+            }
+        }
+
+        @media(max-width:900px){
+
+            .container{
+                flex-direction:column;
+            }
+
+            .left{
+                min-height:300px;
+            }
+
+            .right{
+                padding:45px 30px;
+            }
+
+            h1{
+                font-size:55px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="blur1"></div>
+    <div class="blur2"></div>
+
+    <div class="floating-heart" style="left:10%; animation-delay:0s;">🤎</div>
+    <div class="floating-heart" style="left:30%; animation-delay:2s;">🤎</div>
+    <div class="floating-heart" style="left:50%; animation-delay:4s;">🤎</div>
+    <div class="floating-heart" style="left:70%; animation-delay:1s;">🤎</div>
+    <div class="floating-heart" style="left:90%; animation-delay:3s;">🤎</div>
+
+    <div class="container">
+
+        <div class="left"></div>
+
+        <div class="right">
+
+            <div class="tag">
+                FOR SOMEONE SPECIAL ✨
+            </div>
+
+            <h1>
+                Alya Asyiqah Batrisyia 🤎
+            </h1>
+
+            <div class="message">
+
+                Org ada something special
+                untuk sayang ni 🥺
+
+                <br>
+
+                Sayang nak tengok takk??
+
+            </div>
+
+            <div class="btn-group">
+
+                <a href="birthday.php"
+                class="btn btn-love">
+
+                NAKKK LAA 🤎
+
+                </a>
+
+                <a href="takmau.php"
+                class="btn btn-no">
+
+                TAKMAU LAA 😭
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

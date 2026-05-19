@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Mini Game 🤎</title>
+
+    <link rel="preconnect"
+    href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
+    rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+    135deg,
+    #3E2723 0%,
+    #6D4C41 50%,
+    #A1887F 100%
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    position:relative;
+
+    padding:30px;
+}
+
+.blur1,
+.blur2{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    opacity:0.4;
+}
+
+.blur1{
+
+    width:300px;
+    height:300px;
+
+    background:#D7B899;
+
+    top:-100px;
+    left:-100px;
+}
+
+.blur2{
+
+    width:350px;
+    height:350px;
+
+    background:#8D6E63;
+
+    bottom:-100px;
+    right:-100px;
+}
+
+.card{
+
+    width:100%;
+    max-width:650px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border:
+    1px solid rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:35px;
+
+    padding:55px 40px;
+
+    text-align:center;
+
+    color:#FFF8F0;
+
+    box-shadow:
+    0 10px 50px rgba(0,0,0,0.25);
+
+    position:relative;
+    z-index:2;
+}
+
+h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:50px;
+
+    margin-bottom:30px;
+}
+
+.message{
+
+    font-size:14px;
+
+    line-height:2;
+
+    color:#f3e9e2;
+
+    margin-bottom:35px;
+}
+
+.game-box{
+
+    width:85%;
+
+    margin:auto;
+
+    height:250px;
+
+    background:
+    rgba(255,255,255,0.05);
+
+    border-radius:25px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+}
+
+.target{
+
+    width:65px;
+    height:65px;
+
+    background:#FFF8F0;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:35px;
+
+    cursor:pointer;
+
+    transition:0.15s;
+
+    user-select:none;
+}
+
+.target:hover{
+
+    transform:scale(1.1);
+}
+
+.score{
+
+    margin-top:15px;
+
+    font-size:10px;
+
+    margin-bottom:25px;
+}
+
+.btn{
+
+    display:none;
+
+    width:fit-content;
+
+    margin:auto;
+
+    background:#FFF8F0;
+
+    color:#5D4037;
+
+    padding:15px 30px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:0.35s;
+
+    opacity:0;
+
+    transform:translateY(20px);
+}
+
+/* Animation bila muncul */
+
+.btn.show{
+
+    display:inline-block;
+
+    animation:fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
+@keyframes celebrate{
+
+    0%{
+
+        transform:
+        translateY(0)
+        rotate(0deg);
+
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+
+        transform:
+        translateY(-120vh)
+        rotate(360deg);
+
+        opacity:0;
+    }
+}
+
+.btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 10px 25px rgba(255,255,255,0.2);
+}
+
+@media(max-width:768px){
+
+    h1{
+        font-size:55px;
+    }
+
+    .card{
+        padding:40px 25px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <div class="blur1"></div>
+    <div class="blur2"></div>
+
+    <div class="card">
+
+        <h1>
+            Mini Game 🤎
+        </h1>
+
+        <div class="message">
+
+            Sayang kena tangkap
+            10 hati ni dulu 😤❤️
+
+            <br>
+
+            Lepas menang baru boleh
+            continue special surprise ✨
+
+        </div>
+
+        <div class="game-box" id="gameBox">
+
+            <div class="target" id="target">
+                🤎
+
+            </div>
+
+        </div>
+
+        <div class="score">
+            Score: <span id="score">0</span> / 10
+        </div>
+
+        <a href="suratcinta.php"
+        class="btn"
+        id="continueBtn">
+
+        Continue To Special Part 💌
+
+        </a>
+
+    </div>
+
+<script>
+
+const target = document.getElementById('target');
+const gameBox = document.getElementById('gameBox');
+const scoreText = document.getElementById('score');
+const continueBtn = document.getElementById('continueBtn');
+
+let score = 0;
+
+function moveHeart(){
+
+    const maxX = gameBox.clientWidth - 80;
+    const maxY = gameBox.clientHeight - 80;
+
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    target.style.left = randomX + 'px';
+    target.style.top = randomY + 'px';
+}
+
+moveHeart();
+
+target.addEventListener('click', () => {
+
+    score++;
+
+    scoreText.innerText = score;
+
+    moveHeart();
+
+    target.style.transform = 'scale(1.3)';
+
+    setTimeout(() => {
+        target.style.transform = 'scale(1)';
+    }, 120);
+
+    if(score >= 10){
+
+        target.style.display = 'none';
+
+        createCelebration();
+
+        continueBtn.classList.add('show');
+    }
+});
+
+function createCelebration(){
+
+    const emojis =
+    ['🤎','✨','💖','💕'];
+
+    for(let i = 0; i < 30; i++){
+
+        const item =
+        document.createElement('div');
+
+        item.innerHTML =
+        emojis[Math.floor(Math.random() * emojis.length)];
+
+        item.style.position = 'fixed';
+
+        item.style.left =
+        Math.random() * 100 + 'vw';
+
+        item.style.top = '100vh';
+
+        item.style.fontSize =
+        (Math.random() * 20 + 20) + 'px';
+
+        item.style.zIndex = '999';
+
+        item.style.pointerEvents = 'none';
+
+        item.style.animation =
+        `celebrate ${Math.random() * 2 + 2}s linear forwards`;
+
+        document.body.appendChild(item);
+
+        setTimeout(() => {
+            item.remove();
+        }, 4000);
+    }
+}
+
+
+</script>
+
+</body>
+</html>

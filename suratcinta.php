@@ -1,0 +1,326 @@
+<?php
+// Love Letter Page
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>For You 🤎</title>
+
+    <link rel="preconnect"
+    href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
+    rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+    135deg,
+    #3E2723 0%,
+    #6D4C41 50%,
+    #A1887F 100%
+    );
+
+    overflow-x:hidden;
+
+    position:relative;
+
+    padding:40px 20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Blur Background */
+
+.blur1,
+.blur2{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    opacity:0.4;
+}
+
+.blur1{
+
+    width:300px;
+    height:300px;
+
+    background:#D7B899;
+
+    top:-100px;
+    left:-100px;
+}
+
+.blur2{
+
+    width:350px;
+    height:350px;
+
+    background:#8D6E63;
+
+    bottom:-100px;
+    right:-100px;
+}
+
+/* Floating Hearts */
+
+.heart{
+
+    position:absolute;
+
+    font-size:28px;
+
+    color:rgba(255,255,255,0.15);
+
+    animation:float 8s linear infinite;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
+}
+
+/* Main Letter */
+
+.letter{
+
+    width:100%;
+    max-width:850px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border:
+    1px solid rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:35px;
+
+    padding:60px;
+
+    color:#FFF8F0;
+
+    box-shadow:
+    0 10px 50px rgba(0,0,0,0.25);
+
+    position:relative;
+    z-index:2;
+}
+
+/* Heading */
+
+.tag{
+
+    font-size:14px;
+
+    letter-spacing:4px;
+
+    opacity:0.8;
+
+    margin-bottom:15px;
+}
+
+h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:80px;
+
+    margin-bottom:35px;
+}
+
+/* Letter Text */
+
+.text{
+
+    font-size:17px;
+
+    line-height:2.3;
+
+    color:#f3e9e2;
+}
+
+.highlight{
+
+    color:#FFF8F0;
+
+    font-weight:600;
+}
+
+/* Signature */
+
+.signature{
+
+    margin-top:50px;
+
+    text-align:right;
+}
+
+.signature-name{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:50px;
+
+    margin-top:10px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .letter{
+        padding:40px 25px;
+    }
+
+    h1{
+        font-size:55px;
+    }
+
+    .text{
+        font-size:15px;
+    }
+
+    .signature-name{
+        font-size:40px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <!-- Blur -->
+
+    <div class="blur1"></div>
+    <div class="blur2"></div>
+
+    <!-- Floating Hearts -->
+
+    <div class="heart"
+    style="left:10%; animation-delay:0s;">🤎</div>
+
+    <div class="heart"
+    style="left:30%; animation-delay:2s;">🤎</div>
+
+    <div class="heart"
+    style="left:50%; animation-delay:4s;">🤎</div>
+
+    <div class="heart"
+    style="left:70%; animation-delay:1s;">🤎</div>
+
+    <div class="heart"
+    style="left:90%; animation-delay:3s;">🤎</div>
+
+    <!-- Main Letter -->
+
+    <div class="letter">
+
+        <div class="tag">
+            A LETTER FOR YOU ✨
+        </div>
+
+        <h1>
+            Dear Alya Asyiqah Batrisyia 🤎
+        </h1>
+
+        <div class="text">
+            
+            Tahun ini merupakan tahun pertama org diberi peluang untuk 
+            menyambut ulang tahun kelahiran sayang sebagai pasangan.
+            <br>
+            Tiada ungkapan lain yang mampu org luahkan selain terima kasih.<br>
+            Terima kasih sebab sayang beri manusia tak sempurna ni peluang untuk menetap di dalam hati sayang,<br>
+            Terima kasih sebab sayang sentiasa cuba yang terbaik untuk org tak kira dalam apa situasi sekalipun,<br>
+            Terima kasih sebab selalu sabar dengan perangai org yang tak sempurna ni, dan<br>
+            Terima kasih sebab masih cintakan org tanpa ragu <br>
+            walaupun kadang-kadang org sendiri susah nak faham dengan perangai org.<br>
+            <br>
+            Hadirnya sayang dalam hidup org memberi warna dan juga nafas baru dalma hidup org,<br>
+            sayanglah tempat org mengadu,<br>
+            sayanglah tempat org bermanja,<br>
+            sayanglah tempat org menjadi diri sendiri,<br>
+            sayanglah segalanya pada org.<br>
+            <br>
+            org suka every little moments dengan sayang,<br>
+            kita sleep call,<br>
+            kita update everything,<br>
+            kita gossip,<br>
+            kita deeptalk,<br>
+            dan setiap moment tu akan sentiasa berada dalam hati org.<br>
+            <br>
+            org nak sayang tahu bahawa<br>
+            org ni lelaki paling bertuah dengan adanya wanita sempurna seperti kamu disisi.<br>
+            dan harapan terbesar org agar masih diberi peluang untuk menyambut hari lahir mu lagi<br>
+            hingga org sudah tiada lagi di alam dunia.<br> 
+            Selamanya cinta Hati ku. 🤎<br>
+            <br>
+           
+            <span class="highlight">
+                Selamat Hari Lahir,
+                Cinta Hatiku. ❤️
+            </span>
+
+        </div>
+
+        <!-- Signature -->
+
+        <div class="signature">
+
+            With Love,
+
+            <div class="signature-name">
+                Amirul Asyraf 
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

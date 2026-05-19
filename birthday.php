@@ -1,0 +1,536 @@
+<?php
+// Birthday Wish Page
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday 🤎</title>
+
+    <link rel="preconnect"
+    href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
+    rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+
+            font-family:'Poppins',sans-serif;
+
+            min-height:100vh;
+
+            background:
+            linear-gradient(
+            135deg,
+            #3E2723 0%,
+            #6D4C41 50%,
+            #A1887F 100%
+            );
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            overflow:hidden;
+
+            position:relative;
+
+            padding:30px;
+        }
+
+        /* Background Blur */
+
+        .blur1,
+        .blur2{
+
+            position:absolute;
+            border-radius:50%;
+            filter:blur(120px);
+            opacity:0.4;
+        }
+
+        .blur1{
+
+            width:350px;
+            height:350px;
+
+            background:#D7B899;
+
+            top:-100px;
+            left:-100px;
+        }
+
+        .blur2{
+
+            width:400px;
+            height:400px;
+
+            background:#8D6E63;
+
+            bottom:-120px;
+            right:-120px;
+        }
+
+        .container{
+
+            width:100%;
+            max-width:1100px;
+
+            background:
+            rgba(255,255,255,0.08);
+
+            border:
+            1px solid rgba(255,255,255,0.12);
+
+            backdrop-filter:blur(18px);
+
+            border-radius:35px;
+
+            overflow:hidden;
+
+            display:flex;
+
+            box-shadow:
+            0 10px 50px rgba(0,0,0,0.25);
+
+            position:relative;
+            z-index:2;
+        }
+
+        .left{
+
+            flex:1;
+
+            min-height:650px;
+
+            background:
+            url('images/gf.jpg')
+            center/cover;
+
+            position:relative;
+        }
+
+
+
+        .left::after{
+
+            content:'';
+
+            position:absolute;
+            inset:0;
+
+            background:
+            linear-gradient(
+            to top,
+            rgba(0,0,0,0.45),
+            rgba(0,0,0,0.1)
+            );
+        }
+
+        /* RIGHT CONTENT */
+
+        .right{
+
+            flex:1;
+
+            padding:70px 55px;
+
+            display:flex;
+            justify-content:center;
+            flex-direction:column;
+
+            color:#FFF8F0;
+        }
+
+        .tag{
+
+            font-size:14px;
+            letter-spacing:4px;
+            opacity:0.8;
+
+            margin-bottom:18px;
+        }
+
+        h1{
+
+            font-family:'Great Vibes',cursive;
+
+            font-size:45px;
+
+            /* line-height:1; */
+
+            margin-bottom:50px;
+        }
+
+        .name{
+
+            font-size:24px;
+            font-weight:600;
+
+            margin-bottom:25px;
+        }
+
+        .message{
+
+            font-size:16px;
+
+            line-height:2.1;
+
+            color:#f3e9e2;
+
+            margin-bottom:40px;
+        }
+
+       .btn{
+        width: fit-content;
+
+    display:inline-block;
+
+    background:#FFF8F0;
+
+    color:#5D4037;
+
+    padding:15px 30px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:0.35s;
+
+    animation:shake 1.5s infinite;
+}
+
+.btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 10px 25px rgba(255,255,255,0.2);
+}
+
+@keyframes shake{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    25%{
+        transform:translateX(-2px);
+    }
+
+    50%{
+        transform:translateX(2px);
+    }
+
+    75%{
+        transform:translateX(-2px);
+    }
+
+    100%{
+        transform:translateX(0);
+    }
+}
+
+        .calendar-box{
+
+            width:300px;
+
+            background:
+            rgba(255,255,255,0.08);
+
+            border:
+            1px solid rgba(255,255,255,0.12);
+
+            border-radius:25px;
+
+            padding:25px;
+
+            margin-bottom:40px;
+
+            backdrop-filter:blur(10px);
+
+            box-shadow:
+            0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .calendar-top{
+
+            font-size:20px;
+            font-weight:1000;
+
+            letter-spacing:3px;
+
+            opacity:0.7;
+
+            margin-bottom:15px;
+        }
+
+        .calendar-date{
+
+            width:150px;
+            height:80px;
+
+            background:#FFF8F0;
+
+            color:#5D4037;
+
+            border-radius:20px;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            font-size:60px;
+            font-weight:700;
+
+            margin-bottom:18px;
+        }
+
+        .calendar-text{
+
+            font-size:14px;
+
+            line-height:1.8;
+
+            color:#f3e9e2;
+        }
+
+        /* Floating Hearts */
+
+        .floating-heart{
+
+            position:absolute;
+
+            color:rgba(255,255,255,0.18);
+
+            font-size:28px;
+
+            animation:float 8s linear infinite;
+        }
+
+        @keyframes float{
+
+            0%{
+                transform:translateY(100vh);
+                opacity:0;
+            }
+
+            20%{
+                opacity:1;
+            }
+
+            100%{
+                transform:translateY(-120vh);
+                opacity:0;
+            }
+        }
+
+        /* BOOM HEART */
+
+        @keyframes floatUp {
+
+            0% {
+                transform:
+                translateY(0)
+                scale(0.5);
+
+                opacity:0;
+            }
+
+            20%{
+                opacity:1;
+            }
+
+            100%{
+
+                transform:
+                translateY(-120vh)
+                scale(1.5)
+                rotate(360deg);
+
+                opacity:0;
+            }
+        }
+
+        /* Responsive */
+
+        @media(max-width:900px){
+
+            .container{
+                flex-direction:column;
+            }
+
+            .left{
+                min-height:320px;
+            }
+
+            .right{
+                padding:45px 30px;
+            }
+
+            h1{
+                font-size:60px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="blur1"></div>
+    <div class="blur2"></div>
+
+    <!-- Floating Background Hearts -->
+
+    <div class="floating-heart"
+    style="left:10%; animation-delay:0s;">🤎</div>
+
+    <div class="floating-heart"
+    style="left:30%; animation-delay:2s;">🤎</div>
+
+    <div class="floating-heart"
+    style="left:55%; animation-delay:4s;">🤎</div>
+
+    <div class="floating-heart"
+    style="left:75%; animation-delay:1s;">🤎</div>
+
+    <div class="floating-heart"
+    style="left:90%; animation-delay:3s;">🤎</div>
+
+    <!-- MAIN CONTAINER -->
+
+    <div class="container">
+
+        <!-- IMAGE SIDE -->
+
+        <div class="left"></div>
+
+        <!-- CONTENT SIDE -->
+
+        <div class="right">
+
+            <!-- <div class="tag">
+                HAPPY BIRTHDAY MY LOVE ✨
+            </div> -->
+            <h1>
+                Today Is The Day!! ✨
+            </h1>
+
+            <div class="calendar-box">
+
+            <div class="calendar-top">
+                MAY 2026
+            </div>
+
+            <div class="calendar-date">
+                23
+            </div>
+
+            <div class="calendar-text">
+                Hari dimana cinta hatiku dilahirkan 🤎
+            </div>
+
+        </div>
+
+            <!-- <h1>
+                Happy
+                Birthday
+            </h1>
+
+            <div class="name">
+                To Alya Asyiqah Batrisyia 🤎
+            </div>
+
+            <div class="message">
+
+                Happy birthday sayang ❤️
+
+                <br><br>
+
+                Thank you sebab selalu ada
+                dengan I waktu susah dan senang.
+
+            </div> -->
+
+            <a href="minigame.php" class="btn">
+
+            Continue 💌
+
+            </a>
+
+        </div>
+
+    </div>
+
+<script>
+
+window.onload = function() {
+
+    const body = document.body;
+
+    const emojis =
+    ['❤️','💖','💕','💘','💝'];
+
+    for (let i = 0; i < 50; i++) {
+
+        const heart =
+        document.createElement('div');
+
+        heart.innerHTML =
+        emojis[Math.floor(Math.random() * emojis.length)];
+
+        heart.style.position = 'fixed';
+
+        heart.style.left =
+        Math.random() * 100 + 'vw';
+
+        heart.style.top = '100vh';
+
+        heart.style.fontSize =
+        (Math.random() * 35 + 20) + 'px';
+
+        heart.style.animation =
+        `floatUp ${Math.random() * 3 + 1}s ease-out forwards`;
+
+        heart.style.zIndex = '999';
+
+        body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
+    }
+}
+
+function showLove(){
+
+    alert(
+    "I love you so much 🤎"
+    );
+}
+
+</script>
+
+</body>
+</html>

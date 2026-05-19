@@ -1,0 +1,380 @@
+<?php
+// Letter / Memories Page
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Our Memories 🤎</title>
+
+    <link rel="preconnect"
+    href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
+    rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+    135deg,
+    #3E2723 0%,
+    #6D4C41 50%,
+    #A1887F 100%
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    position:relative;
+
+    padding:30px;
+}
+
+/* Blur Background */
+
+.blur1,
+.blur2{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    opacity:0.4;
+}
+
+.blur1{
+
+    width:300px;
+    height:300px;
+
+    background:#D7B899;
+
+    top:-100px;
+    left:-100px;
+}
+
+.blur2{
+
+    width:350px;
+    height:350px;
+
+    background:#8D6E63;
+
+    bottom:-100px;
+    right:-100px;
+}
+
+/* Floating Hearts */
+
+.heart{
+
+    position:absolute;
+
+    font-size:28px;
+
+    color:rgba(255,255,255,0.18);
+
+    animation:float 8s linear infinite;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
+}
+
+/* Main Card */
+
+.card{
+
+    width:100%;
+    max-width:1000px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border:
+    1px solid rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:35px;
+
+    padding:50px;
+
+    color:#FFF8F0;
+
+    box-shadow:
+    0 10px 50px rgba(0,0,0,0.25);
+
+    position:relative;
+    z-index:2;
+
+    text-align:center;
+}
+
+.tag{
+
+    font-size:14px;
+
+    letter-spacing:4px;
+
+    opacity:0.8;
+
+    margin-bottom:15px;
+}
+
+h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:75px;
+
+    margin-bottom:20px;
+}
+
+.message{
+
+    font-size:16px;
+
+    line-height:2;
+
+    color:#f3e9e2;
+
+    margin-bottom:35px;
+}
+
+/* Video Box */
+
+.video-box{
+
+    width:320px;
+
+    margin:auto;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    border:
+    1px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.2);
+
+    margin-bottom:30px;
+}
+
+video{
+
+    width:100%;
+
+    display:block;
+}
+
+/* Final Text */
+
+.final-text{
+
+    margin-top:20px;
+
+    font-size:17px;
+
+    line-height:2;
+
+    color:#f3e9e2;
+}
+
+.highlight{
+
+    font-weight:600;
+
+    color:#FFF8F0;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .card{
+        padding:35px 20px;
+    }
+
+    h1{
+        font-size:55px;
+    }
+}
+
+ .btn{
+        width: fit-content;
+
+    display:inline-block;
+
+    background:#FFF8F0;
+
+    color:#5D4037;
+
+    padding:15px 30px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:0.35s;
+
+    animation:shake 1.5s infinite;
+}
+
+.btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 10px 25px rgba(255,255,255,0.2);
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <!-- Blur -->
+
+    <div class="blur1"></div>
+    <div class="blur2"></div>
+
+    <!-- Floating Hearts -->
+
+    <div class="heart"
+    style="left:10%; animation-delay:0s;">🤎</div>
+
+    <div class="heart"
+    style="left:30%; animation-delay:2s;">🤎</div>
+
+    <div class="heart"
+    style="left:50%; animation-delay:4s;">🤎</div>
+
+    <div class="heart"
+    style="left:70%; animation-delay:1s;">🤎</div>
+
+    <div class="heart"
+    style="left:90%; animation-delay:3s;">🤎</div>
+
+    <!-- Main Card -->
+
+    <div class="card">
+
+        <div class="tag">
+            OUR MEMORIES ✨
+        </div>
+
+        <h1>
+            To My Favourite Person
+        </h1>
+
+        <div class="message">
+
+            Semua moment dengan sayang
+            adalah moment terindah 🥺
+
+        </div>
+
+        <!-- VIDEO -->
+
+        <div class="video-box">
+
+            <video 
+            id="memoryVideo"
+            controls
+            playsinline>
+
+                <!-- Tukar video sini -->
+                <source src="images/sayangku.MP4"
+                type="video/MP4">
+
+            </video>
+
+        </div>
+
+        <!-- Final Text -->
+
+        <div class="final-text">
+
+
+            <span class="highlight">
+                Happy Birthday Sayang ❤️
+            </span>
+
+        </div>
+        <br>
+        <a href="suratcinta.php" class="btn">
+
+            Continue 💌
+
+            </a>
+
+    </div>
+    <script>
+
+    const video =
+    document.getElementById('memoryVideo');
+
+    video.addEventListener('play', () => {
+
+        if(video.requestFullscreen){
+
+            video.requestFullscreen();
+
+        } else if(video.webkitEnterFullscreen){
+
+            // iPhone support
+            video.webkitEnterFullscreen();
+        }
+    });
+
+    </script>
+</body>
+</html>
